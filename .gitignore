@@ -1,0 +1,11 @@
+# Project exclude paths
+/out/
+/.idea/.gitignore
+/code.iml
+/.idea/description.html
+/.idea/leetcode/editor.xml
+/.idea/encodings.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/project-template.xml
+/.idea/vcs.xml

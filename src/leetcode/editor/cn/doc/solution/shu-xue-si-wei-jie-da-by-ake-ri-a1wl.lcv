@@ -1,0 +1,37 @@
+### 解题思路
+
+1. 首先分析题中规律，寻找循环体部分分析，比如题中给的它的循环体即下面所展示部分，可以看出循环体长为4，6，可以大致推出公式
+   g=2*(row-1);
+2. 那么就可以根据每行数列获取每组数据的规律，可以得出每行的数据满足 i % g == index or i % g == g - index ,接下来就简单了，按照 行数据挨个加入即可；
+3. 将给定的字符串和行数还原成N字形；
+4. 将上述存储输出string即可。
+
+### 代码
+
+* java
+
+```java
+class Solution {
+    public String convert(String s, int numRows) {
+
+
+        char[]arry=s.toCharArray();
+
+        StringBuilder str = new StringBuilder(arry.length);
+        if(numRows < 2) return s;
+        int model= 2*(numRows-1);
+     for( int index=0; index<numRows;index++) {
+         for (int i = 0; i < arry.length; i++) {
+
+             if (i % model == index || i % model == (model - index)) {
+                str.append(arry[i]);
+             }
+         }
+     }
+
+
+    return  str.toString();
+    }
+}
+```
+
