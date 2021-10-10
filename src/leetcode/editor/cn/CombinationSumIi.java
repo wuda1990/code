@@ -41,18 +41,42 @@
   
 package leetcode.editor.cn;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CombinationSumIi{
   public static void main(String[] args) {
        Solution solution = new CombinationSumIi().new Solution();
+      solution.combinationSum2(new int[]{10,1,2,7,6,1,5}, 8);
   }
   //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        Arrays.sort(candidates);
+        backTrack(candidates,0, list, target,result);
+        return result;
     }
-}
+//[1, 1, 2, 5, 6, 7, 10]
+    private void backTrack(int[] candidates,int pos, List<Integer> list, int target,List<List<Integer>> result) {
+        if (target == 0) {
+            result.add(new ArrayList<>(list));
+        }
+        for (int i = pos; i < candidates.length; i++) {
+            if (candidates[i] > target) {
+                break;
+            }
+            if (i != pos && candidates[i] == candidates[i - 1]) {
+                continue;
+            }
+            list.add(candidates[i]);
+            backTrack(candidates, i + 1, list, target - candidates[i], result);
+            list.remove(list.size() - 1);
+        }
+    }
+  }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
