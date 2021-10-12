@@ -53,8 +53,39 @@ class Solution {
         return result;
     }
 
-      private void backTrack(int posez, int n, List<String> ans, List<List<String>> result) {
+      private void backTrack(int pos, int n, List<String> ans, List<List<String>> result) {
+        if (ans.size() == n){
+            result.add(ans);
+        }
+          for (int i = pos; i < n; i++) {
+              //选择放的位置，不能与ans已有的位置重复
+              for (int j = 0; j < n; j++) {
+                  if (overlap(j, ans)) {
+                      break;
+                  }
+                  ans.add(generate(j, n));
+                  backTrack(pos + 1, n, ans, result);
+                  ans.remove(ans.size() - 1);
+              }
+          }
+      }
 
+      private boolean overlap(int j, List<String> ans) {
+        if (ans.size()==0){
+            return false;
+        }
+        String lastRow = ans.get(ans.size() - 1);
+        int pos = lastRow.indexOf('Q');
+        return j == pos || j == pos + 1 || j == pos - 1;
+      }
+
+      private String generate(int j, int n) {
+          char[] arr = new char[n];
+          for (int i = 0; i < n; i++) {
+              arr[i] = '.';
+          }
+          arr[j] = 'Q';
+          return new String(arr);
       }
   }
 //leetcode submit region end(Prohibit modification and deletion)
