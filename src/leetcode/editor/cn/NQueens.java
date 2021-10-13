@@ -43,6 +43,7 @@ import java.util.List;
 public class NQueens{
   public static void main(String[] args) {
        Solution solution = new NQueens().new Solution();
+      solution.solveNQueens(4);
   }
   //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
@@ -53,30 +54,38 @@ class Solution {
         return result;
     }
 
-      private void backTrack(int pos, int n, List<String> ans, List<List<String>> result) {
-        if (ans.size() == n){
-            result.add(ans);
-        }
-          for (int i = pos; i < n; i++) {
-              //选择放的位置，不能与ans已有的位置重复
-              for (int j = 0; j < n; j++) {
-                  if (overlap(j, ans)) {
-                      break;
-                  }
-                  ans.add(generate(j, n));
-                  backTrack(pos + 1, n, ans, result);
-                  ans.remove(ans.size() - 1);
-              }
+      private void backTrack(int row, int n, List<String> ans, List<List<String>> result) {
+          if (row == n) {
+              result.add(new ArrayList<>(ans));
           }
+
+          for (int i = 0; i < n; i++) {
+              if (overlap(i, ans)) {
+                  continue;
+              }
+              ans.add(generate(i, n));
+              backTrack(row + 1, n, ans, result);
+              ans.remove(ans.size() - 1);
+          }
+
       }
 
-      private boolean overlap(int j, List<String> ans) {
-        if (ans.size()==0){
-            return false;
-        }
-        String lastRow = ans.get(ans.size() - 1);
-        int pos = lastRow.indexOf('Q');
-        return j == pos || j == pos + 1 || j == pos - 1;
+      private boolean overlap(int index, List<String> ans) {
+          if (ans.size() == 0) {
+
+              return false;
+          }
+          for (int i = ans.size() - 1; i >= 0; i--) {
+              String row = ans.get(i);
+              int pos = row.indexOf('Q');
+              if (index == pos) {
+                  return true;
+              }
+              if (i == ans.size() - 1 && (index == pos + 1 || index == pos - 1)) {
+                  return true;
+              }
+          }
+          return false;
       }
 
       private String generate(int j, int n) {

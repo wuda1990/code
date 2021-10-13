@@ -29,6 +29,9 @@
 //<div><div>Related Topics</div><div><li>字符串</li><li>动态规划</li><li>回溯</li></div></div><br><div><li>👍 849</li><li>👎 0</li></div>
   
 package leetcode.editor.cn;
+
+import java.util.List;
+
 public class PalindromePartitioning{
   public static void main(String[] args) {
        Solution solution = new PalindromePartitioning().new Solution();
@@ -36,7 +39,7 @@ public class PalindromePartitioning{
   //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public List<List<String>> partition(String s) {
-
+        return null;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

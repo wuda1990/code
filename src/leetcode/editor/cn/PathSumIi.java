@@ -41,6 +41,10 @@
 //<div><div>Related Topics</div><div><li>树</li><li>深度优先搜索</li><li>回溯</li><li>二叉树</li></div></div><br><div><li>👍 598</li><li>👎 0</li></div>
   
 package leetcode.editor.cn;
+
+import javax.swing.tree.TreeNode;
+import java.util.List;
+
 public class PathSumIi{
   public static void main(String[] args) {
        Solution solution = new PathSumIi().new Solution();
@@ -63,7 +67,7 @@ public class PathSumIi{
  */
 class Solution {
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-
+        return null;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

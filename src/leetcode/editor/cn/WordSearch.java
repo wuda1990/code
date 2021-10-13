@@ -50,7 +50,7 @@ public class WordSearch{
   //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean exist(char[][] board, String word) {
-
+        return false;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

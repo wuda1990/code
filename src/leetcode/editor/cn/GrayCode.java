@@ -35,6 +35,9 @@
 //<div><div>Related Topics</div><div><li>位运算</li><li>数学</li><li>回溯</li></div></div><br><div><li>👍 337</li><li>👎 0</li></div>
   
 package leetcode.editor.cn;
+
+import java.util.List;
+
 public class GrayCode{
   public static void main(String[] args) {
        Solution solution = new GrayCode().new Solution();
@@ -42,7 +45,7 @@ public class GrayCode{
   //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public List<Integer> grayCode(int n) {
-
+        return null;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
